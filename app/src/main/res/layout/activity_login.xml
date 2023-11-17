@@ -21,6 +21,11 @@
         android:textColor="#BFFFFFFF"
         android:textSize="48sp" />
 
+    <ImageView
+        android:layout_width="136dp"
+        android:layout_height="113dp"
+        android:src="@drawable/jbus_img" />
+
     <LinearLayout
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -35,9 +40,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:background="@color/transblack"
-            android:hint=" Email"
-            android:textColor="@color/white"
+            android:drawableStart="@android:drawable/sym_action_email"
+            android:fontFamily="@font/alata"
+            android:hint="  Email"
+            android:includeFontPadding="true"
             android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
         <EditText
@@ -46,8 +55,11 @@
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:background="@color/transblack"
-            android:hint=" Password"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:fontFamily="@font/alata"
+            android:hint="  Password"
             android:inputType="textPassword"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
@@ -75,20 +87,20 @@
             android:textAlignment="center"
             android:textColor="@color/white" />
 
-        <Button
+        <TextView
             android:id="@+id/text_register"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
-            android:backgroundTint="@color/black"
+
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:paddingHorizontal="16dp"
             android:text="Register Now"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textColor="#9CBEE3"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:cornerRadius="15dp"/>
 

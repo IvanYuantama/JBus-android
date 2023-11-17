@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(v -> {
-            viewToast(this, "This is for login");
+            viewToast(this, "You has been login");
             moveActivity(this, MainActivity.class);
         });
 

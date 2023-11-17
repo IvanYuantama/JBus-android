@@ -16,38 +16,43 @@
         android:id="@+id/title1_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alata"
+        android:fontFamily="@font/alatsi"
         android:text="Register Account"
         android:textAlignment="center"
         android:textColor="#E9FFDD00"
-        android:textSize="48sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/title2_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/alata"
-        android:text="Type your username, email, and password\n"
+        android:text="Type your username, email, and password"
         android:textAlignment="center"
         android:textColor="#E9FFFFFF"
-        android:textSize="16sp" />
+        android:textSize="13sp" />
 
     <LinearLayout
         android:id="@+id/register_form"
+        android:layout_marginTop="35dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/transblack"
         android:layout_marginHorizontal="36dp">
 
         <EditText
             android:id="@+id/user_reg"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/transblack"
+            android:background="#1BFFFFFF"
+            android:drawableStart="@drawable/baseline_person_outline_24"
             android:fontFamily="@font/alata"
-            android:hint=" Username"
+            android:hint="  Username"
             android:inputType="text"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
@@ -56,10 +61,13 @@
             android:id="@+id/email_reg"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/transblack"
+            android:background="#1BFFFFFF"
+            android:drawableStart="@android:drawable/sym_action_email"
             android:fontFamily="@font/alata"
-            android:hint=" Email"
+            android:hint="  Email"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
@@ -68,27 +76,33 @@
             android:id="@+id/password_reg"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/transblack"
+            android:background="#1BFFFFFF"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
             android:fontFamily="@font/alata"
-            android:hint=" Password"
+            android:hint="  Password"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
-
-        <Button
-            android:id="@+id/register_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/alata"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp"
-            android:text="REGISTER"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:cornerRadius="15dp" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="50dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/alata"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:text="REGISTER"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp" />
 </LinearLayout>
