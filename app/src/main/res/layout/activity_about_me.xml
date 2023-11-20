@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="157dp"
+        android:layout_height="157dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="P"
+        android:textColor="@color/white"
+        android:textSize="80dp" />
+
+    <!--    Username -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/user_about"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/alata"
+            android:text="Username     : "
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/user_about_bind"
+            android:layout_width="209dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:text="-" />
+
+    </LinearLayout>
+
+
+    <!--    Email -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/email_about"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/alata"
+            android:text="Email             : "
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/email_about_bind"
+            android:layout_width="209dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:text="-" />
+
+    </LinearLayout>
+
+    <!--    Balance-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/balance_about"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/alata"
+            android:gravity="center_vertical"
+            android:text="Balance        : "
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/balance_about_bind"
+            android:layout_width="209dp"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:text="-" />
+    </LinearLayout>
+
+    <!--    Top Up-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="245dp"-->
+        <!--            android:layout_height="49dp"-->
+        <!--            android:layout_marginLeft="40dp"-->
+        <!--            android:background="@color/transblack"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:gravity="center"-->
+        <!--            android:orientation="horizontal">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="245dp"
+            android:layout_height="49dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditText"
+                android:layout_width="245dp"
+                android:layout_height="49dp"
+                android:fontFamily="@font/alata"
+                android:hint="Top Up Amount"
+                android:paddingLeft="10dp"
+                android:textColor="#A9000000"
+                android:textColorHint="#90000000"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="0dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button_topup"
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/transblack"
+            android:fontFamily="@font/alata"
+            android:inputType="number"
+            android:text="Top Up"
+            android:textSize="14sp" />
+
+
+        <!--            <EditText-->
+        <!--                android:layout_width="230dp"-->
+        <!--                android:layout_height="37dp"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginLeft="8dp"-->
+        <!--                android:background="#1BFFFFFF"-->
+        <!--                android:fontFamily="@font/alata"-->
+        <!--                android:hint="Amount"-->
+        <!--                android:inputType="number"-->
+        <!--                android:paddingLeft="30dp"-->
+        <!--                android:textColor="@color/white"-->
+        <!--                android:textColorHighlight="#1B1B1B"-->
+        <!--                android:textColorHint="@color/white"-->
+        <!--                android:textColorLink="#000000" />-->
+
+        <!--        </LinearLayout>-->
+
+    </LinearLayout>
+
+</LinearLayout>
