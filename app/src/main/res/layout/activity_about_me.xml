@@ -10,6 +10,7 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/initial_name"
         android:layout_width="157dp"
         android:layout_height="157dp"
         android:background="@drawable/circle"
@@ -128,18 +129,21 @@
             android:gravity="center"
             android:textColorHint="@color/white">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/textInputEditText"
                 android:layout_width="245dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/alata"
                 android:hint="Top Up Amount"
+                android:inputType="number"
                 android:paddingLeft="10dp"
                 android:textColor="#A9000000"
                 android:textColorHint="#90000000"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="0dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -151,7 +155,6 @@
             android:layout_marginLeft="10dp"
             android:backgroundTint="@color/transblack"
             android:fontFamily="@font/alata"
-            android:inputType="number"
             android:text="Top Up"
             android:textSize="14sp" />
 
