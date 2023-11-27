@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/addBus_title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/alatsi"
+        android:text="Add Bus"
+        android:textAlignment="center"
+        android:textColor="#FBC02D"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/busname_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:hint="Bus Name"
+        android:paddingLeft="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/capacity_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:hint="Capacity"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/price_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:hint="Price"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white" />
+
+
+    <LinearLayout
+        android:id="@+id/addbus_form"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/transblack"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="9dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="3dp">
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:background="#00DDCACA"
+                android:text="Bus Type"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:src="@drawable/baseline_directions_bus_24"
+                app:tint="@color/black" />
+
+            <Spinner
+                android:id="@+id/bus_type_dropdown"
+                android:layout_width="229dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="25dp"
+                android:backgroundTint="#689F38" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="9dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="3dp">
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:background="#00DDCACA"
+                android:text="Departure"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:src="@drawable/baseline_directions_bus_24"
+                app:tint="@color/black" />
+
+            <Spinner
+                android:id="@+id/departure_dropdown"
+                android:layout_width="229dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="25dp"
+                android:backgroundTint="#689F38" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="3dp">
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:background="#00DDCACA"
+                android:text="Arrival"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:src="@drawable/baseline_directions_bus_24"
+                app:tint="@color/black" />
+
+            <Spinner
+                android:id="@+id/arrival_dropdown"
+                android:layout_width="229dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="25dp"
+                android:backgroundTint="#689F38" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/addBus_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/alata"
+        android:text="Facilities"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/darkblue"
+        android:paddingBottom="20dp">
+
+        <CheckBox
+            android:id="@+id/ac_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="AC"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/wifi_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Wi-Fi"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/toilet_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Toilet"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/darkblue"
+        android:paddingBottom="20dp">
+
+        <CheckBox
+            android:id="@+id/lcd_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="LCD TV"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/coolbox_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Coolbox"
+            android:textColor="#FFFFFF" />
+
+        <CheckBox
+            android:id="@+id/lunch_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Lunch"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/darkblue"
+        android:paddingBottom="20dp">
+
+        <CheckBox
+            android:id="@+id/baggage_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Large Baggage"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/socket_checkbox"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Electric Socket"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_add_bus"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Create Bus" />
+
+</LinearLayout>

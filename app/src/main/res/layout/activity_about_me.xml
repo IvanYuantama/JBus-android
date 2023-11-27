@@ -178,4 +178,36 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/text_renter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Already be a renter"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button_renter"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Manage Bus"
+        app:cornerRadius="10dp" />
+
+    <TextView
+        android:id="@+id/text_notrenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="You're not a renter"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button_notrenter"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:text="Register to Renter"
+        app:cornerRadius="10dp" />
+
 </LinearLayout>

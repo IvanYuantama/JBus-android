@@ -5,13 +5,14 @@ import static com.ivanYuantamaPradiptaJBusRD.jbus_android.LoginActivity.loggedAc
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Account;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.BaseResponse;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.request.BaseApiService;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.request.UtilsApi;
@@ -24,14 +25,15 @@ public class AboutMeActivity extends AppCompatActivity {
 
     private BaseApiService mApiService;
     private Context mContext;
-    private TextView userText, emailText, balanceText, initialName = null;
+    private TextView userText, emailText, balanceText, initialName, textRenter, textNotRenter = null;
     private EditText textTopUp = null;
-    private Button buttonTopUp = null;
+    private Button buttonTopUp, buttonRenter, buttonNotRenter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_me);
+        setTitle("About Me");
 
         mContext = this;
         mApiService = UtilsApi.getApiService();
@@ -42,18 +44,37 @@ public class AboutMeActivity extends AppCompatActivity {
         balanceText = findViewById(R.id.balance_about_bind);
         textTopUp = findViewById(R.id.textInputEditText);
         buttonTopUp = findViewById(R.id.button_topup);
-
+        textRenter = findViewById(R.id.text_renter);
+        textNotRenter = findViewById(R.id.text_notrenter);
+        buttonRenter = findViewById(R.id.button_renter);
+        buttonNotRenter = findViewById(R.id.button_notrenter);
         initialName.setText("" + LoginActivity.loggedAccount.name.charAt(0));
         userText.setText(loggedAccount.name);
         emailText.setText(loggedAccount.email);
         balanceText.setText("" + loggedAccount.balance);
 
+        if(loggedAccount.company == null) {
+            textRenter.setVisibility(View.GONE);
+            buttonRenter.setVisibility(View.GONE);
+            buttonNotRenter.setOnClickListener(v -> {
+                Intent intent = new Intent(this, RegisterRenterActivity.class);
+                startActivity(intent);
+            });
+        }
+        else {
+            textNotRenter.setVisibility(View.GONE);
+            buttonNotRenter.setVisibility(View.GONE);
+            buttonRenter.setOnClickListener(v -> {
+                Intent intent = new Intent(this, ManageBusActivity.class);
+                startActivity(intent);
+            });
+        }
         buttonTopUp.setOnClickListener(v -> handleTopUp());
     }
 
     protected void handleTopUp() {
         // handling empty field
-        int idS = LoginActivity.loggedAccount.id;
+        int idS = loggedAccount.id;
         String amountTest = textTopUp.getText().toString();
 
 
@@ -75,7 +96,7 @@ public class AboutMeActivity extends AppCompatActivity {
 
                 if (res.success){
                     finish();
-                    LoginActivity.loggedAccount.balance += res.payload.doubleValue();
+                    loggedAccount.balance += res.payload.doubleValue();
                     startActivity(getIntent());
                     Toast.makeText(mContext, res.message, Toast.LENGTH_SHORT).show();
                 }

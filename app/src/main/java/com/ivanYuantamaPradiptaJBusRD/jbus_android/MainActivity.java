@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Main JBus");
         busArray = new BusArrayAdapter(this, Bus.sampleBusList(100));
         listBusView = findViewById(R.id.list_bus);
         listBusView.setAdapter(busArray);
