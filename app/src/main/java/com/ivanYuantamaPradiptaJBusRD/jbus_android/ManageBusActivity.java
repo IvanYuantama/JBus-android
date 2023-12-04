@@ -12,11 +12,14 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Account;
@@ -39,8 +42,10 @@ public class ManageBusActivity extends AppCompatActivity {
 
     private ManageBusArrayAdapter manageBusArray = null;
     private ListView listManageBusView = null;
+    private TextView listBusButton = null;
     private List<Bus> listManageBus = new ArrayList<>();
 
+    public static int busManageId;
 
 
     @Override
@@ -54,6 +59,16 @@ public class ManageBusActivity extends AppCompatActivity {
         mContext = this;
         mApiService = UtilsApi.getApiService();
         handleManage();
+
+        listManageBusView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected item at position: " + position, Toast.LENGTH_LONG).show();
+                busManageId = listManageBus.get(position).id;
+                Intent intent = new Intent(mContext, AddBusScheduleActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

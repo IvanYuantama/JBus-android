@@ -39,7 +39,7 @@ public class AboutMeActivity extends AppCompatActivity {
         mApiService = UtilsApi.getApiService();
 
         initialName = findViewById(R.id.initial_name);
-        userText = findViewById(R.id.user_about_bind);
+        userText = findViewById(R.id.schedule_bus);
         emailText = findViewById(R.id.email_about_bind);
         balanceText = findViewById(R.id.balance_about_bind);
         textTopUp = findViewById(R.id.textInputEditText);

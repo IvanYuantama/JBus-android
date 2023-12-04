@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/paymentlist_title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alatsi"
+        android:text="Payment List"
+        android:textAlignment="center"
+        android:textColor="#F4FD00"
+        android:textSize="38sp" />
+
+    <TextView
+        android:id="@+id/paymentlist_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/alatsi"
+        android:text="Click for accept or cancel payment"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/list_payment_view"
+        android:layout_width="288dp"
+        android:layout_height="369dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/transblack" />
+
+</LinearLayout>

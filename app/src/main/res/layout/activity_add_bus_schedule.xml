@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/addbusschedule_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alatsi"
+        android:text="Add Bus Schedule"
+        android:textAlignment="center"
+        android:textColor="#F4FD00"
+        android:textSize="38sp" />
+
+    <TextView
+        android:id="@+id/namebus_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alata"
+        android:text="Name Bus"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/namebus_schedule2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/alata"
+        android:text="List Schedule :"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/list_bus_schedule"
+        android:layout_width="380dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/transblack" />
+
+    <TextView
+        android:id="@+id/namebus_schedule3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/alata"
+        android:text="Add New Schedule"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="70dp"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/date_schedule"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:hint="DD"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+
+        <EditText
+            android:id="@+id/month_schedule"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="MM"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/year_schedule"
+            android:layout_width="121dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="DDDD"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="100dp"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/hour_schedule"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:hint="hh"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+
+        <EditText
+            android:id="@+id/minutes_schedule"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="mm"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/second_schedule"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="ss"
+            android:inputType="number"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_add_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="100dp"
+        android:text="Add Schedule" />
+
+
+</LinearLayout>

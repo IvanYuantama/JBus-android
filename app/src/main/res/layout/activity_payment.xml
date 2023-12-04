@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/payment_title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alatsi"
+        android:text="Make Booking"
+        android:textAlignment="center"
+        android:textColor="#F4FD00"
+        android:textSize="38sp" />
+
+<!--    Bus Seat -->
+    <TextView
+        android:id="@+id/payment_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/alatsi"
+        android:text="Bus Seat"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <ListView
+        android:id="@+id/list_seat_view"
+        android:layout_width="288dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/transblack" />
+
+    <TextView
+        android:id="@+id/payment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alatsi"
+        android:text="Type like this (RD01)"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="117dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColorHint="@color/white">
+
+        <EditText
+            android:id="@+id/bus_seat_textview"
+            android:layout_width="104dp"
+            android:layout_height="51dp"
+            android:fontFamily="@font/alata"
+            android:hint="Bus Seat"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textColor="#A9000000"
+            android:textColorHint="#90000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    Departure Date -->
+    <Button
+        android:id="@+id/button_addseat"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Add seat" />
+
+    <LinearLayout
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="3dp">
+
+        <TextView
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:background="#00DDCACA"
+            android:text="Departure"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:src="@drawable/baseline_arrow_forward_24"
+            app:tint="@color/black" />
+
+        <Spinner
+            android:id="@+id/bus_departure_dropdown"
+            android:layout_width="181dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="25dp"
+            android:backgroundTint="#689F38" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_book"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Book" />
+
+</LinearLayout>

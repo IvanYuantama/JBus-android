@@ -72,7 +72,7 @@ public class AddBusActivity extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
             // mengisi field selectedBusType sesuai dengan item yang dipilih
-            selectedDeptStationID = position;
+            selectedDeptStationID = stationList.get(position).id;
         }
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
@@ -84,7 +84,7 @@ public class AddBusActivity extends AppCompatActivity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
             // mengisi field selectedBusType sesuai dengan item yang dipilih
-            selectedArrStationID = position;
+            selectedArrStationID = stationList.get(position).id;
         }
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
