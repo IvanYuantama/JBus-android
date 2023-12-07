@@ -99,7 +99,7 @@
             android:layout_width="121dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
-            android:hint="DDDD"
+            android:hint="YYYY"
             android:inputType="number"
             android:textAlignment="center" />
 

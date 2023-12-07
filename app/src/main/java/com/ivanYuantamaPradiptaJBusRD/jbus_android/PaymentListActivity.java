@@ -1,8 +1,11 @@
 package com.ivanYuantamaPradiptaJBusRD.jbus_android;
 
+import static com.ivanYuantamaPradiptaJBusRD.jbus_android.LoginActivity.loggedAccount;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +35,7 @@ public class PaymentListActivity extends AppCompatActivity {
     private PaymentAdapter payDap;
 
     private ListView listPaymentView;
-    private int selectedPayment;
+    public static int selectedPaymentId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,15 @@ public class PaymentListActivity extends AppCompatActivity {
         mApiService = UtilsApi.getApiService();
         listPaymentView = findViewById(R.id.list_payment_view);
         handleListPayment();
+        listPaymentView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Selected item at position: " + position, Toast.LENGTH_LONG).show();
+                selectedPaymentId = listPayment.get(position).id;
+                Intent intent = new Intent(mContext, PaymentDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     protected void handleListPayment(){
@@ -55,7 +67,12 @@ public class PaymentListActivity extends AppCompatActivity {
                     return;
                 }
 
-                listPayment = response.body(); //simpan response body ke listStation
+                List<Payment> res = response.body(); //simpan response body ke listStation
+                for(Payment p : res){
+                    if(p.buyerId == loggedAccount.id){
+                        listPayment.add(p);
+                    }
+                }
                 payDap = new PaymentAdapter(mContext, listPayment);
                 listPaymentView.setAdapter(payDap);
             }

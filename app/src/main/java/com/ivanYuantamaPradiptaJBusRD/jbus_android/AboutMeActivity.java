@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Account;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.BaseResponse;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.request.BaseApiService;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.request.UtilsApi;
@@ -48,6 +49,7 @@ public class AboutMeActivity extends AppCompatActivity {
         textNotRenter = findViewById(R.id.text_notrenter);
         buttonRenter = findViewById(R.id.button_renter);
         buttonNotRenter = findViewById(R.id.button_notrenter);
+        handleProfile();
         initialName.setText("" + LoginActivity.loggedAccount.name.charAt(0));
         userText.setText(loggedAccount.name);
         emailText.setText(loggedAccount.email);
@@ -106,6 +108,26 @@ public class AboutMeActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<BaseResponse<Double>> call, Throwable t) {
+                Toast.makeText(mContext, "Problem with the server", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void handleProfile(){
+        mApiService.getAccountbyId(loggedAccount.id).enqueue(new Callback<Account>() {
+            @Override
+            public void onResponse(Call<Account> call, Response<Account> response) {
+                // handle the potential 4xx & 5xx error
+                if (!response.isSuccessful()) {
+                    Toast.makeText(mContext, "Application error " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Account res = response.body();
+                loggedAccount = res;
+            }
+
+            @Override
+            public void onFailure(Call<Account> call, Throwable t) {
                 Toast.makeText(mContext, "Problem with the server", Toast.LENGTH_SHORT).show();
             }
         });

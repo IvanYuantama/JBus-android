@@ -37,7 +37,7 @@ public class PaymentAdapter extends ArrayAdapter<Payment> {
         Payment pay = getItem(position);
         if (pay != null) {
             TextView listText = currentItemView.findViewById(R.id.list_text_schedule);
-            listText.setText("" + pay.id);
+            listText.setText("Payment Id : " + pay.id + " \n" + pay.departureDate + " \n" + pay.status);
         }
         return currentItemView;
     }

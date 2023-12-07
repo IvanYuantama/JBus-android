@@ -1,5 +1,8 @@
 package com.ivanYuantamaPradiptaJBusRD.jbus_android.request;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Retrofit;
@@ -12,7 +15,7 @@ public class RetrofitClient {
             retrofit = new Retrofit.Builder()
                     .client(okHttpClient())
                     .baseUrl(baseUrl)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(getCustomJson()))
                     .build();
         }
         return retrofit;
@@ -28,5 +31,9 @@ public class RetrofitClient {
                     return chain.proceed(newRequest);
                 })
                 .build();
+    }
+
+    private static Gson getCustomJson(){
+        return new GsonBuilder().setDateFormat("MMMM dd, yyyy hh:mm:ss").create();
     }
 }

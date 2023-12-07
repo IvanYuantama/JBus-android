@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginRight="10dp"
-    android:background="#354865"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:ignore="UselessParent">
+    android:orientation="vertical">
 
-    <!--    Bus Name -->
+    <TextView
+        android:id="@+id/paymentdetail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alatsi"
+        android:text="Payment Detail"
+        android:textAlignment="center"
+        android:textColor="#F4FD00"
+        android:textSize="38sp" />
+
+    <!--    Status -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/busnameview_title"
+            android:id="@+id/paymentdetail_statustitle1"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginLeft="50dp"
             android:fontFamily="@font/alata"
-            android:text="Bus Name     : "
+            android:text="Status     : "
             android:textColor="#FFFFFF"
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/busnameview"
+            android:id="@+id/paymentdetail_statustitle2"
             android:layout_width="209dp"
             android:layout_height="match_parent"
             android:textColor="@color/white"
             android:textSize="17sp"
             tools:text="-" />
+
     </LinearLayout>
 
-    <!--    Price -->
+    <!--    Rating -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,26 +55,27 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/buspriceview_title"
+            android:id="@+id/paymentdetail_ratingtitle1"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginLeft="50dp"
             android:fontFamily="@font/alata"
-            android:text="Price     : "
+            android:text="Rating     : "
             android:textColor="#FFFFFF"
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/buspriceview"
+            android:id="@+id/paymentdetail_ratingtitle2"
             android:layout_width="209dp"
             android:layout_height="match_parent"
             android:textColor="@color/white"
             android:textSize="17sp"
             tools:text="-" />
+
     </LinearLayout>
 
-    <!--    Price -->
+    <!--    Departure Date -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,34 +83,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/buscapacityview_title"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="50dp"
-            android:fontFamily="@font/alata"
-            android:text="Capacity     : "
-            android:textColor="#FFFFFF"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/buscapacityview"
-            android:layout_width="209dp"
-            android:layout_height="match_parent"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            tools:text="-" />
-    </LinearLayout>
-
-    <!--    Departure -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/busdepartureview_title"
+            android:id="@+id/paymentdetail_departuretitle1"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -111,39 +94,40 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/busdepartureview"
+            android:id="@+id/paymentdetail_departuretitle2"
             android:layout_width="209dp"
             android:layout_height="match_parent"
             android:textColor="@color/white"
             android:textSize="17sp"
             tools:text="-" />
+
     </LinearLayout>
 
-    <!--    Arrival -->
+    <!--    Button ACC -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/busarrivalview_title"
-            android:layout_width="120dp"
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="172dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="50dp"
-            android:fontFamily="@font/alata"
-            android:text="Arrival     : "
-            android:textColor="#FFFFFF"
-            android:textSize="17sp" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#B51010"
+            android:text="Cancel" />
 
-        <TextView
-            android:id="@+id/busarrivalview"
-            android:layout_width="209dp"
-            android:layout_height="match_parent"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            tools:text="-" />
+        <Button
+            android:id="@+id/button_accept"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#158C07"
+            android:text="Accept" />
     </LinearLayout>
+
 </LinearLayout>

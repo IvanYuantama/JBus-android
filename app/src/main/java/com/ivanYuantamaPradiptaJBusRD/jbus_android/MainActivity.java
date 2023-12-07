@@ -1,8 +1,11 @@
 package com.ivanYuantamaPradiptaJBusRD.jbus_android;
 
+import static com.ivanYuantamaPradiptaJBusRD.jbus_android.LoginActivity.loggedAccount;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,11 +17,19 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Account;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Bus;
+import com.ivanYuantamaPradiptaJBusRD.jbus_android.request.BaseApiService;
+import com.ivanYuantamaPradiptaJBusRD.jbus_android.request.UtilsApi;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private Button nextButton = null;
     private ListView busListView = null;
     private HorizontalScrollView pageScroll = null;
+    private BaseApiService mApiService;
+    private Context mContext;
 
 
     @Override
@@ -46,17 +59,21 @@ public class MainActivity extends AppCompatActivity {
         busArray = new BusArrayAdapter(this, Bus.sampleBusList(100));
         listBusView = findViewById(R.id.list_bus);
         listBusView.setAdapter(busArray);
+        mContext = this;
+        mApiService = UtilsApi.getApiService();
 
         prevButton = findViewById(R.id.prev_page);
         nextButton = findViewById(R.id.next_page);
         pageScroll = findViewById(R.id.page_number_scroll);
         busListView = findViewById(R.id.list_bus);
 
-        listBus = Bus.sampleBusList(30);
-        listSize = listBus.size();
+//        listBus = Bus.sampleBusList(30);
+//        listSize = listBus.size();
 
-        paginationFooter();
-        goToPage(currentPage);
+        handleGetListBus();
+
+//        paginationFooter();
+//        goToPage(currentPage);
 
         prevButton.setOnClickListener(v -> {
             currentPage = currentPage != 0? currentPage-1 : 0;
@@ -105,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
             btns[i].setText(""+(i+1));
 
             btns[i].setTextColor(getResources().getColor(R.color.black));
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(100,
-                    100);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(100, 100);
             ll.addView(btns[i], lp);
             final int j = i;
             btns[j].setOnClickListener(v -> {
@@ -143,5 +159,28 @@ public class MainActivity extends AppCompatActivity {
         List<Bus> paginatedList = listBus.subList(startIndex, endIndex);
         busArray = new BusArrayAdapter(this, paginatedList);
         listBusView.setAdapter(busArray);
+    }
+
+    private void handleGetListBus(){
+        mApiService.getAllBus().enqueue(new Callback<List<Bus>>() {
+            @Override
+            public void onResponse(Call<List<Bus>> call, Response<List<Bus>> response) {
+                // handle the potential 4xx & 5xx error
+                if (!response.isSuccessful()) {
+                    Toast.makeText(mContext, "Application error " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                List<Bus> resListBus = response.body();
+                listBus = resListBus;
+                listSize = listBus.size();
+                paginationFooter();
+                goToPage(currentPage);
+            }
+
+            @Override
+            public void onFailure(Call<List<Bus>> call, Throwable t) {
+                Toast.makeText(mContext, "Problem with the server", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

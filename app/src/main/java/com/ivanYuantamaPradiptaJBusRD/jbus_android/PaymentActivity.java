@@ -138,9 +138,7 @@ public class PaymentActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<BaseResponse<Payment>> call, Throwable t) {
-                Toast.makeText(mContext, "Sukses booking", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(mContext, DetailBusActivity.class);
-                startActivity(intent);
+                Toast.makeText(mContext, t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
