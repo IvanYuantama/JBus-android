@@ -17,6 +17,13 @@ import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Bus;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class BusSeatAdapater digunakan untuk menangani UI dari listview busseat
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
+
 public class BusSeatAdapter extends ArrayAdapter<String> {
 
     public BusSeatAdapter(@NonNull Context context, List<String> arrayList) {

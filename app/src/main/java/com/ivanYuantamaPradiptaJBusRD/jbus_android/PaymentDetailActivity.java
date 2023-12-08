@@ -25,13 +25,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class PaymentDetailActivity digunakan untuk menangani UI dari layout paymentdetail
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class PaymentDetailActivity extends AppCompatActivity {
 
+    /**
+     * Field yang terdapat pada PaymentDetailActivity seperti textview dan button
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private TextView departureDate, status, rating;
     private Payment payTemp;
     private Button acceptButton, cancelButton;
+
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout PaymentDetailActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +66,9 @@ public class PaymentDetailActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Menangani detail dari payment
+     */
     protected void handlePaymentDetail() {
         mApiService.getPaymentbyId(selectedPaymentId).enqueue(new Callback<Payment>() {
             @Override
@@ -79,6 +96,9 @@ public class PaymentDetailActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur accept payment
+     */
     protected void handleAccept(){
         mApiService.accept(payTemp.id).enqueue(new Callback<BaseResponse<Payment>>() {
             @Override
@@ -104,6 +124,9 @@ public class PaymentDetailActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur cancel payment
+     */
     protected void handleCancel(){
         mApiService.cancel(payTemp.id).enqueue(new Callback<BaseResponse<Payment>>() {
             @Override

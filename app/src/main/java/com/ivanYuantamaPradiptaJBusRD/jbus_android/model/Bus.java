@@ -5,7 +5,16 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class bus digunakan untuk menangani bus yang ada
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class Bus extends Serializable {
+    /**
+     * Merupakan berbagai data dari bus seperti nama bus, harga, dll
+     */
     public int accountId;
     public String name;
     public List<Facility> facilities;

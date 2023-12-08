@@ -7,16 +7,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Account;
@@ -31,9 +37,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class MainActivity digunakan untuk menangani UI dari layout main
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Field yang terdapat pada MainActivity seperti listview, button, dll
+     */
     private BusArrayAdapter busArray = null;
     private ListView listBusView = null;
 
@@ -47,10 +62,16 @@ public class MainActivity extends AppCompatActivity {
     private Button nextButton = null;
     private ListView busListView = null;
     private HorizontalScrollView pageScroll = null;
+    private Spinner busFilter;
+    private String selectedFilter;
+    private List<String> typeFilter = new ArrayList<>();
     private BaseApiService mApiService;
     private Context mContext;
 
-
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout MainActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +87,20 @@ public class MainActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.next_page);
         pageScroll = findViewById(R.id.page_number_scroll);
         busListView = findViewById(R.id.list_bus);
+        busFilter = findViewById(R.id.bus_filter_dropdown);
+
+        typeFilter.add("Name");
+        typeFilter.add("Price");
 
 //        listBus = Bus.sampleBusList(30);
 //        listSize = listBus.size();
 
         handleGetListBus();
+        ArrayAdapter arrBus = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, typeFilter);
+        arrBus.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        busFilter.setAdapter(arrBus);
+        busFilter.setOnItemSelectedListener(busFilterOISL);
+        handleFilter();
 
 //        paginationFooter();
 //        goToPage(currentPage);
@@ -85,6 +115,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    AdapterView.OnItemSelectedListener busFilterOISL = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+            // mengisi field selectedBusType sesuai dengan item yang dipilih
+            selectedFilter = typeFilter.get(position);
+        }
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
+    };
+
+    private void handleFilter(){
+        if(selectedFilter == "Name"){
+
+        }
+        else if(selectedFilter == "Price"){
+
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

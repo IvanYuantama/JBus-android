@@ -37,8 +37,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class PaymentActivity digunakan untuk menangani UI dari layout payment
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class PaymentActivity extends AppCompatActivity {
-
+    /**
+     * Field yang terdapat pada PaymentActivity seperti listview, edittext, dan button
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private int buyerId, renterId, busId;
@@ -57,10 +65,15 @@ public class PaymentActivity extends AppCompatActivity {
     private Button buttonBook, addSeatButton;
     private BusSeatAdapter seatAdapter;
 
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout PaymentActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        setTitle("Make Booking");
         mContext = this;
         mApiService = UtilsApi.getApiService();
         buyerId = loggedAccount.id;
@@ -92,6 +105,9 @@ public class PaymentActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * departureOISL digunakan untuk departureSpinner
+     */
     AdapterView.OnItemSelectedListener departureOISL = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -105,6 +121,9 @@ public class PaymentActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Untuk menangani seat button
+     */
     private void handleSeatButton(){
         if(busSeatEditText.getText().toString().contains("RD")){
             seatString.add(busSeatEditText.getText().toString());
@@ -115,6 +134,10 @@ public class PaymentActivity extends AppCompatActivity {
             Toast.makeText(mContext, "Harus pake RD yaa", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * Untuk menangani fitur make booking
+     */
     private void handleMakeBooking(){
         if (busSeatEditText.getText().toString().isEmpty()) {
             Toast.makeText(mContext, "Field cannot be empty", Toast.LENGTH_SHORT).show();

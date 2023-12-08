@@ -34,8 +34,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class AddBusActivity digunakan untuk menangani UI dari layout addbus
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class AddBusActivity extends AppCompatActivity {
 
+    /**
+     * Field yang terdapat pada AddBusActivity seperti checkbox, spinner, dll
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private EditText nameBus, capacityBus, priceBus;
@@ -55,6 +64,9 @@ public class AddBusActivity extends AppCompatActivity {
     private List<Facility> selectedFacilities = new ArrayList<>();
 
 
+    /**
+     * busTypeOISL digunakan untuk busTypeSpinner
+     */
     AdapterView.OnItemSelectedListener busTypeOISL = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -67,6 +79,9 @@ public class AddBusActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * deptOISL digunakan untuk deptartureSpinner
+     */
     AdapterView.OnItemSelectedListener deptOISL = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -79,6 +94,9 @@ public class AddBusActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * arrOISL digunakan untuk arrivalSpinner
+     */
     AdapterView.OnItemSelectedListener arrOISL = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -91,7 +109,10 @@ public class AddBusActivity extends AppCompatActivity {
         }
     };
 
-
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout AddBusActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +149,9 @@ public class AddBusActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur add bus
+     */
     protected void handleAddBus(){
         mApiService.getAllStation().enqueue(new Callback<List<Station>>() {
             @Override
@@ -161,6 +185,9 @@ public class AddBusActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur add facility
+     */
     protected void handleFacility(){
         selectedFacilities.clear(); // Clear the list before updating
         if (acCheckBox.isChecked()) { selectedFacilities.add(Facility.AC);}
@@ -173,6 +200,9 @@ public class AddBusActivity extends AppCompatActivity {
         if (electricCheckBox.isChecked()) { selectedFacilities.add(Facility.ELECTRIC_SOCKET);}
     }
 
+    /**
+     * Untuk menangani fitur create bus
+     */
     protected void handleButtonBus(){
         // handling empty field
         int idS = loggedAccount.id;

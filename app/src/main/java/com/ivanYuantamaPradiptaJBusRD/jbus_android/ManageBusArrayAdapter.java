@@ -16,6 +16,7 @@ import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Bus;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ManageBusArrayAdapter extends ArrayAdapter<Bus> {
 
     public ManageBusArrayAdapter(@NonNull Context context, List<Bus> arrayList) {

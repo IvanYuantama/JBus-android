@@ -17,12 +17,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class RegisterActivity digunakan untuk menangani UI dari layout register
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class RegisterActivity extends AppCompatActivity {
+    /**
+     * Field yang terdapat pada RegisterActivity seperti edittext dan button
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private EditText name, email, password;
     private Button registerButton = null;
 
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout RegisterActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +55,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur register
+     */
     protected void handleRegister() {
         // handling empty field
         String nameS = name.getText().toString();

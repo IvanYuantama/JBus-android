@@ -17,6 +17,12 @@ import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Schedule;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class ScheduleAdapater digunakan untuk menangani UI dari listview schedule
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class ScheduleAdapter extends ArrayAdapter<Schedule> {
 
     public ScheduleAdapter(@NonNull Context context, List<Schedule> arrayList) {

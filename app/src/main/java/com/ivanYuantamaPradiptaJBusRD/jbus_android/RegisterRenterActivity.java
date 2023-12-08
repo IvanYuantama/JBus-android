@@ -21,12 +21,26 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class RegisterRenterActivity digunakan untuk menangani UI dari layout registerrenter
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class RegisterRenterActivity extends AppCompatActivity {
+    /**
+     * Field yang terdapat pada AddBusScheduleActivity seperti edittext dan button
+     */
 
     private BaseApiService mApiService;
     private Context mContext;
     private EditText regRentCompany, regRentAddress, regRentPhone;
     private Button regRentButton = null;
+
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout RegisterRenterActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +62,9 @@ public class RegisterRenterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur register renter
+     */
     protected void handleRegRent() {
         // handling empty field
         int idS = loggedAccount.id;

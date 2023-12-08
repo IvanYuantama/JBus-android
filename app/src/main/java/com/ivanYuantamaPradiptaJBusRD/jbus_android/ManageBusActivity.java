@@ -35,8 +35,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class ManageBusActivity digunakan untuk menangani UI dari layout managebus
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class ManageBusActivity extends AppCompatActivity {
-
+    /**
+     * Field yang terdapat pada ManageBusActivity seperti textview, listview, dll
+     */
     private BaseApiService mApiService;
     private Context mContext;
 
@@ -47,7 +55,10 @@ public class ManageBusActivity extends AppCompatActivity {
 
     public static int busManageId;
 
-
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout ManageBusActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +82,11 @@ public class ManageBusActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     *
+     * @param menu menampilkan menu
+     * @return mengembalikan nilai true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -78,6 +94,11 @@ public class ManageBusActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     *
+     * @param item menampilkan isi dari menu
+     * @return mengembalikan item yang di select
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.add_bus_button){
@@ -88,6 +109,9 @@ public class ManageBusActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Untuk mendapatkan list bus dari backend
+     */
     protected void handleManage() {
         int idS = LoginActivity.loggedAccount.id;
         mApiService.getMyBus(idS).enqueue(new Callback<List<Bus>>() {

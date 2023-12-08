@@ -19,14 +19,28 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class LoginActivity digunakan untuk menangani UI dari layout login
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class LoginActivity extends AppCompatActivity {
 
+    /**
+     * Field yang terdapat pada LoginActivity seperti textview, edittext, dan button
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private EditText email, password;
     private TextView registerNow = null;
     private Button loginButton = null;
     public static Account loggedAccount;
+
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout LoginActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,15 +72,28 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     *
+     * @param ctx activity sekarang
+     * @param cls acitivity setelahnya
+     */
     private void moveActivity(Context ctx, Class<?> cls){
         Intent intent = new Intent(ctx, cls);
         startActivity(intent);
     }
 
+    /**
+     *
+     * @param ctx activity sekarang
+     * @param message message dari response
+     */
     private void viewToast(Context ctx, String message){
         Toast.makeText(ctx, message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Untuk menangani fitur login
+     */
     protected void handleLogin() {
         String emailS = email.getText().toString();
         String passwordS = password.getText().toString();

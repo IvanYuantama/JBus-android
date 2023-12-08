@@ -31,8 +31,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class AddBusScheduleActivity digunakan untuk menangani UI dari layout addbusschedule
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class AddBusScheduleActivity extends AppCompatActivity {
-
+    /**
+     * Field yang terdapat pada AddBusScheduleActivity seperti textview, edittext, dan button
+     */
     private Bus tempBus;
     private BaseApiService mApiService;
     private Context mContext;
@@ -44,7 +52,10 @@ public class AddBusScheduleActivity extends AppCompatActivity {
 
     public static List<Schedule> tempSchedule = new ArrayList<>();
 
-
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout AddBusScheduleActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +63,7 @@ public class AddBusScheduleActivity extends AppCompatActivity {
         mContext = this;
         mApiService = UtilsApi.getApiService();
 
+        setTitle("Add Bus Schedule");
 
         date = findViewById(R.id.date_schedule);
         month = findViewById(R.id.month_schedule);
@@ -70,6 +82,11 @@ public class AddBusScheduleActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     *
+     * @param menu mendapatkan parameter menu
+     * @return mengembalikan nilai true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -77,6 +94,11 @@ public class AddBusScheduleActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     *
+     * @param item mendapatkan item dari menu
+     * @return mengembalikan item yang di select
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.detail_button){
@@ -87,6 +109,9 @@ public class AddBusScheduleActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Untuk menangani title bus name
+     */
     protected void handleTitle() {
         mApiService.getBusbyId(busManageId).enqueue(new Callback<Bus>() {
             @Override
@@ -111,6 +136,9 @@ public class AddBusScheduleActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani fitur add schedule
+     */
     protected void handleAddSchedule(){
         String idS = "" + busManageId;
         String dateS = date.getText().toString();

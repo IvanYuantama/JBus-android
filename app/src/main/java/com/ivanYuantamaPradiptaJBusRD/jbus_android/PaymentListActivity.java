@@ -27,8 +27,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class PaymentListActivity digunakan untuk menangani UI dari layout paymentlist
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class PaymentListActivity extends AppCompatActivity {
-
+    /**
+     * Field yang terdapat pada PaymentListActivity seperti listview dan payment adapter
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private List<Payment> listPayment = new ArrayList<>();
@@ -36,6 +44,11 @@ public class PaymentListActivity extends AppCompatActivity {
 
     private ListView listPaymentView;
     public static int selectedPaymentId;
+
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout PaymentListActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +71,9 @@ public class PaymentListActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani list pada payment
+     */
     protected void handleListPayment(){
         mApiService.getAllPayment().enqueue(new Callback<List<Payment>>() {
             @Override

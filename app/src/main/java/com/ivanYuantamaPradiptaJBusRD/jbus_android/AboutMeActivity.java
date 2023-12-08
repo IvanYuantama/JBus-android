@@ -22,14 +22,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class AboutMeActivity digunakan untuk menangani UI dari layout aboutme
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class AboutMeActivity extends AppCompatActivity {
 
+    /**
+     * Field yang terdapat pada AboutMeActivity seperti textview, edittext, dan button
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private TextView userText, emailText, balanceText, initialName, textRenter, textNotRenter = null;
     private EditText textTopUp = null;
     private Button buttonTopUp, buttonRenter, buttonNotRenter = null;
 
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout AboutMeActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +87,9 @@ public class AboutMeActivity extends AppCompatActivity {
         buttonTopUp.setOnClickListener(v -> handleTopUp());
     }
 
+    /**
+     * Menghandle topUp
+     */
     protected void handleTopUp() {
         // handling empty field
         int idS = loggedAccount.id;
@@ -113,6 +129,9 @@ public class AboutMeActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Menghandle untuk mendapatkan akun dari idnya
+     */
     private void handleProfile(){
         mApiService.getAccountbyId(loggedAccount.id).enqueue(new Callback<Account>() {
             @Override

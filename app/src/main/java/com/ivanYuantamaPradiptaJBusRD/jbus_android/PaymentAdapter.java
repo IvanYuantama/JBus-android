@@ -18,6 +18,12 @@ import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Schedule;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class PaymentAdapater digunakan untuk menangani UI dari listview payment
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class PaymentAdapter extends ArrayAdapter<Payment> {
 
     public PaymentAdapter(@NonNull Context context, List<Payment> arrayList) {

@@ -8,6 +8,12 @@ import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Class Retrofitclient digunakan untuk menangani retrofit
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class RetrofitClient {
     private static Retrofit retrofit = null;
     public static Retrofit getClient(String baseUrl){

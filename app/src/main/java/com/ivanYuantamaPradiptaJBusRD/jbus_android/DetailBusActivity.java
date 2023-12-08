@@ -22,8 +22,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Class DetailBusActivity digunakan untuk menangani UI dari layout detailbus
+ *
+ * @author Ivan Yuantama Pradipta
+ * @version 1.00
+ */
 public class DetailBusActivity extends AppCompatActivity {
-
+    /**
+     * Field yang terdapat pada DetailBusActivity seperti textvie dan button
+     */
     private BaseApiService mApiService;
     private Context mContext;
     private Bus tempDetailBus;
@@ -31,6 +39,10 @@ public class DetailBusActivity extends AppCompatActivity {
     private Button buttonPayment;
     private TextView nameBus, capacityBus, priceBus, departureBus, arrivalBus, typeBus;
 
+    /**
+     *
+     * @param savedInstanceState untuk membuat layout DetailBusActivity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +68,9 @@ public class DetailBusActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Untuk menangani detail dari bus
+     */
     protected void handledetailTitle() {
         mApiService.getBusbyId(busManageId).enqueue(new Callback<Bus>() {
             @Override
