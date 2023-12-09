@@ -11,42 +11,6 @@
     android:orientation="vertical"
     android:background="@color/darkblue">
 
-    <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingHorizontal="3dp">
-
-        <TextView
-            android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            android:background="#00DDCACA"
-            android:text="Filter Bus"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:src="@drawable/baseline_directions_bus_24"
-            app:tint="@color/black" />
-
-        <Spinner
-            android:id="@+id/bus_filter_dropdown"
-            android:layout_width="229dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="25dp"
-            android:backgroundTint="#689F38" />
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="425dp"

@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
     private Button nextButton = null;
     private ListView busListView = null;
     private HorizontalScrollView pageScroll = null;
-    private Spinner busFilter;
-    private String selectedFilter;
-    private List<String> typeFilter = new ArrayList<>();
     private BaseApiService mApiService;
     private Context mContext;
 
@@ -87,20 +85,11 @@ public class MainActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.next_page);
         pageScroll = findViewById(R.id.page_number_scroll);
         busListView = findViewById(R.id.list_bus);
-        busFilter = findViewById(R.id.bus_filter_dropdown);
-
-        typeFilter.add("Name");
-        typeFilter.add("Price");
 
 //        listBus = Bus.sampleBusList(30);
 //        listSize = listBus.size();
 
         handleGetListBus();
-        ArrayAdapter arrBus = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, typeFilter);
-        arrBus.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-        busFilter.setAdapter(arrBus);
-        busFilter.setOnItemSelectedListener(busFilterOISL);
-        handleFilter();
 
 //        paginationFooter();
 //        goToPage(currentPage);
@@ -115,26 +104,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    AdapterView.OnItemSelectedListener busFilterOISL = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-            // mengisi field selectedBusType sesuai dengan item yang dipilih
-            selectedFilter = typeFilter.get(position);
-        }
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-        }
-    };
-
-    private void handleFilter(){
-        if(selectedFilter == "Name"){
-
-        }
-        else if(selectedFilter == "Price"){
-
-        }
-    }
+    /**
+     *
+     * @param menu menampilkan menu pada main activity
+     * @return mengembalikan nilai true
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -142,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     *
+     * @param item menampilkan item yang tersedia pada menu
+     * @return mengembalikan nilai true
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.profile_button){
@@ -157,6 +136,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method ntuk paginasi
+     */
     private void paginationFooter() {
         int val = listSize % pageSize;
         val = val == 0 ? 0:1;
@@ -182,6 +164,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param index untuk pindah ke page yg ditentukan
+     */
     private void goToPage(int index) {
         for (int i = 0; i< noOfPages; i++) {
             if (i == index) {
@@ -198,11 +184,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param item item untuk di scroll
+     */
     private void scrollToItem(Button item) {
         int scrollX = item.getLeft() - (pageScroll.getWidth() - item.getWidth()) / 2;
         pageScroll.smoothScrollTo(scrollX, 0);
     }
 
+    /**
+     *
+     * @param listBus list pada bus
+     * @param page page untuk paginate
+     */
     private void viewPaginatedList(List<Bus> listBus, int page) {
         int startIndex = page * pageSize;
         int endIndex = Math.min(startIndex + pageSize, listBus.size());
@@ -211,6 +206,9 @@ public class MainActivity extends AppCompatActivity {
         listBusView.setAdapter(busArray);
     }
 
+    /**
+     * Menghandle list bus
+     */
     private void handleGetListBus(){
         mApiService.getAllBus().enqueue(new Callback<List<Bus>>() {
             @Override

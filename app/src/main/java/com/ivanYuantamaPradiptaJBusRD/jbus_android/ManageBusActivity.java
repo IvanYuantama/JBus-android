@@ -74,7 +74,7 @@ public class ManageBusActivity extends AppCompatActivity {
         listManageBusView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Selected item at position: " + position, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Selected bus : " + listManageBus.get(position).name, Toast.LENGTH_LONG).show();
                 busManageId = listManageBus.get(position).id;
                 Intent intent = new Intent(mContext, AddBusScheduleActivity.class);
                 startActivity(intent);
@@ -123,8 +123,11 @@ public class ManageBusActivity extends AppCompatActivity {
                 }
 
                 List<Bus> res = response.body();
-
-                listManageBus = res;
+                for(Bus s : res){
+                    if(s.accountId == idS){
+                        listManageBus.add(s);
+                    }
+                }
                 manageBusArray = new ManageBusArrayAdapter(mContext, listManageBus);
                 listManageBusView.setAdapter(manageBusArray);
 

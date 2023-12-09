@@ -163,9 +163,9 @@ public class AddBusActivity extends AppCompatActivity {
 
                 stationList = response.body(); //simpan response body ke listStation
                 List<String> stationStringList = new ArrayList<>();
-                stationList.forEach(v -> {
-                    stationStringList.add(v.stationName);
-                });
+                for(Station s : stationList){
+                    stationStringList.add(s.stationName);
+                }
 
                 ArrayAdapter deptBus = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, stationStringList);
                 deptBus.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -205,7 +205,7 @@ public class AddBusActivity extends AppCompatActivity {
      */
     protected void handleButtonBus(){
         // handling empty field
-        int idS = loggedAccount.id;
+        int idS = LoginActivity.loggedAccount.id;
         String busNameS = nameBus.getText().toString();
         String capacityS = capacityBus.getText().toString();
         String priceS = priceBus.getText().toString();

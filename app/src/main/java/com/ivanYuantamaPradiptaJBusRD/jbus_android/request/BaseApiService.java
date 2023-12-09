@@ -5,6 +5,7 @@ import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.BaseResponse;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Bus;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.BusType;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Facility;
+import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Invoice;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Renter;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Station;
 import com.ivanYuantamaPradiptaJBusRD.jbus_android.model.Payment;
@@ -195,6 +196,18 @@ public interface BaseApiService {
      */
     @POST("payment/{id}/cancel")
     Call<BaseResponse<Payment>> cancel (@Path("id") int id);
+
+    /**
+     *
+     * @param id id dari payment
+     * @param busRating rating bus dari user
+     * @return mengembalikan rating
+     */
+    @POST("payment/{id}/rating")
+    Call<BaseResponse<Payment>> rating (
+            @Path("id") int id,
+            @Query("busRating") Invoice.BusRating busRating
+    );
 
     /**
      *

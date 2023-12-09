@@ -42,15 +42,9 @@ public class BusArrayAdapter extends ArrayAdapter<Bus> {
         Bus bus = getItem(position);
         if (bus != null) {
             TextView busNameView = currentItemView.findViewById(R.id.busnameview);
-//            TextView busPriceView = currentItemView.findViewById(R.id.buspriceview);
             TextView busCapacityView = currentItemView.findViewById(R.id.buscapacityview);
-            TextView busDepartureView = currentItemView.findViewById(R.id.busdepartureview);
-            TextView busArrivalView = currentItemView.findViewById(R.id.busarrivalview);
             busNameView.setText("" + bus.name);
-//            busPriceView.setText("" + bus.price.price);
             busCapacityView.setText("" + bus.capacity);
-//            busDepartureView.setText(bus.departure.stationName);
-//            busArrivalView.setText("" + bus.arrival.stationName);
         }
         return currentItemView;
     }

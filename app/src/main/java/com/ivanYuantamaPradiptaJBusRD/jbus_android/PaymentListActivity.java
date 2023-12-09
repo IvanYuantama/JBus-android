@@ -63,8 +63,8 @@ public class PaymentListActivity extends AppCompatActivity {
         listPaymentView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Selected item at position: " + position, Toast.LENGTH_LONG).show();
                 selectedPaymentId = listPayment.get(position).id;
+                Toast.makeText(getApplicationContext(), "Selected payment id : " + selectedPaymentId, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(mContext, PaymentDetailActivity.class);
                 startActivity(intent);
             }

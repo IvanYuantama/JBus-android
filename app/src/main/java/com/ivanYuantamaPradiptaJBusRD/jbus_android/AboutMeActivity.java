@@ -63,7 +63,7 @@ public class AboutMeActivity extends AppCompatActivity {
         buttonRenter = findViewById(R.id.button_renter);
         buttonNotRenter = findViewById(R.id.button_notrenter);
         handleProfile();
-        initialName.setText("" + LoginActivity.loggedAccount.name.charAt(0));
+        initialName.setText("" + LoginActivity.loggedAccount.name.toUpperCase().charAt(0));
         userText.setText(loggedAccount.name);
         emailText.setText(loggedAccount.email);
         balanceText.setText("" + loggedAccount.balance);
