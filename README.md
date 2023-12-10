@@ -4,8 +4,7 @@
 JBus-android merupakan project yang dikerjakan oleh setiap mahasiswa teknik komputer semester 3 tahun 2022 yang mengambil mata kuliah OOP. Repository ini merupakan frontend yang dibuat agar JBus dapat berjalan pada device android dengan bahasa pemrograman Java (OOP). Frontend ini akan menangani tampilan User Interface agar terlihat lebih menarik dengan menggunakan Android Studio. Frontend akan meminta/mengirimkan data ke backend menggunakan API yang sudah disediakan oleh backend.
 
 
-![Logo](https://github.com/IvanYuantama/JBus-android/assets/123520791/0546074f-b545-4710-a515-82b979c1d202)
-
+![JBUS LOGO UPDATED](https://github.com/IvanYuantama/JBus-android/assets/123520791/0546074f-b545-4710-a515-82b979c1d202)
 
 
 
