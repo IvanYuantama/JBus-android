@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button[] btns;
     private int currentPage = 0;
-    private int pageSize = 10; // kalian dapat bereksperimen dengan field ini
+    private int pageSize = 5; // kalian dapat bereksperimen dengan field ini
     private int listSize;
     private int noOfPages;
     private List<Bus> listBus = new ArrayList<>();
